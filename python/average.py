@@ -1,3 +1,5 @@
+import operator  # Used in the mode() function
+
 def median(x):
     listlen = len(x)  # Get the amount of values in the list
 
@@ -28,7 +30,22 @@ def medianodd(x, listlen):
     median = x[median_position] # Get that median value and store it in a variable so it can be returned
     return median
 
+
+def mode(x):
+    mode_tracker = {}  # Make a dict to keep track of how many times a value appears
+    for value in x:  # Iterate over each value in the original list
+        if value in mode_tracker:
+            mode_tracker[value] += 1
+        else:
+            mode_tracker[value] = 1
+
+    mode_tracker = dict( sorted(mode_tracker.items(), key=operator.itemgetter(1),reverse=True))  # Sort the tracker dict
+    # in descending order so that the key that appears the most often is at the start
+    mode = list(mode_tracker.keys())[0]  # Find the first key in the list (the mode)
+    return mode
+
+
 # Used for testing the functions
-x = [20, 40, 60, 80]
+x = [20, 40, 40, 60, 60, 60, 80, 80, 80, 80, 80]
 print()
-print(median(x))
+print(mode(x))
