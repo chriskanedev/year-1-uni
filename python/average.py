@@ -1,5 +1,6 @@
 # Designed to calculate averages using code from scratch
 # Tries not to rely on built in and external libraries as much as possible
+# https://github.com/chriskanedev/year-1-uni/
 
 import operator  # Used in the mode() function
 
@@ -60,6 +61,33 @@ def mean(x):
     return mean
 
 
+def range(x):
+    highest = find_highest(x)
+    lowest = find_lowest(x, highest)
+    range = highest - lowest
+    return range
+
+
+def find_highest(x):
+    running_highest = x[0]
+    for value in x:
+        if value > running_highest:
+            running_highest = value
+    return running_highest
+
+
+def find_lowest(x, highest):
+    running_lowest = highest
+    for value in x:
+        if value < running_lowest:
+            running_lowest = value
+    return running_lowest
+
+
 # Used for testing the functions
-x = [20, 40, 40, 60, 60, 60, 80, 80, 80, 80, 80]
+x = [60, 80, 80, 40, 60, -100, 60, 80, 40, 80, 80, 20]
+print("\n", median(x))
+print("\n", mode(x))
 print("\n", mean(x))
+print("\n", range(x))
+
