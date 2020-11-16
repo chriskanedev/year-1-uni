@@ -1,5 +1,6 @@
 length = 10
 
+
 def fibonacci(n):
     if n == 0:  # 0 is the first Fibonacci number
         return 0

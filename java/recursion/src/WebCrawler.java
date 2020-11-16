@@ -36,7 +36,7 @@ public class WebCrawler {
     }
     
     public static void main(String[] args) {
-        new WebCrawler().getPageLinks("http://www.bbc.co.uk/", 0);
+        new WebCrawler().getPageLinks("http://www.chriskanedev.com/", 0);
     }
     
 }
